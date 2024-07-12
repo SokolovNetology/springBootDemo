@@ -1,9 +1,9 @@
 package java.ru.netology.spring_boot.controller.controller;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.netology.spring_boot.systemprofile.SystemProfile;
+import java.ru.netology.spring_boot.controller.systemprofile.SystemProfile;
+
 
 @RestController
 @RequestMapping("/")
