@@ -13,7 +13,6 @@ public class MyRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional
     public Person addPerson(Person person) {
         entityManager.persist(person);
         return person;

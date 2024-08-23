@@ -3,7 +3,7 @@ package ru.netology.hibernate.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.netology.hibernate.entity.Person;
-import ru.netology.hibernate.model.PersonForRequest;
+import ru.netology.hibernate.dto.PersonMapper;
 import ru.netology.hibernate.service.MyService;
 
 @RestController
@@ -15,7 +15,7 @@ public class MyController {
     }
 
     @PostMapping("add/person")
-    public Person addPerson(@RequestBody PersonForRequest personForRequest) {
+    public Person addPerson(@RequestBody PersonMapper personForRequest) {
         System.out.println(personForRequest);
         return service.addPerson(personForRequest.getPerson());
     }

@@ -1,5 +1,6 @@
 package ru.netology.hibernate.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import ru.netology.hibernate.repository.MyRepository;
 import java.util.List;
 
 @Service
+@Transactional
 public class MyService {
     private final MyRepository myRepository;
 
