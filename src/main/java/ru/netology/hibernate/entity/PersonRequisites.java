@@ -19,4 +19,5 @@ public class PersonRequisites implements Serializable {
     private String surname;
     @Column(nullable = false)
     private Integer age;
+
 }

@@ -2,9 +2,8 @@ package ru.netology.hibernate.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
-import ru.netology.hibernate.entity.Person;
+import ru.netology.hibernate.dto.PersonRequest;
 
 import java.util.List;
 
@@ -13,14 +12,14 @@ public class MyRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Person addPerson(Person person) {
+    public PersonRequest addPerson(PersonRequest person) {
         entityManager.persist(person);
         return person;
     }
 
-    public List<Person> getPersonsByCity(String city) {
+    public List<PersonRequest> getPersonsByCity(String city) {
         return entityManager.createQuery(
-                "select p from Person p where p.city_of_living = " + "'" + city + "'", Person.class
+                "select p from PersonRequest p where p.city_of_living = " + "'" + city + "'", PersonRequest.class
         ).getResultList();
     }
 
