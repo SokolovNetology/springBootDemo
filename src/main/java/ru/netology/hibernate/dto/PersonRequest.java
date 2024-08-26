@@ -1,5 +1,4 @@
 package ru.netology.hibernate.dto;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
