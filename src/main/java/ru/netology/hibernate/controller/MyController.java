@@ -15,9 +15,9 @@ public class MyController {
     }
 
     @PostMapping("add/person")
-    public PersonRequest addPerson(@RequestBody PersonMapper personForRequest) {
-        System.out.println(personForRequest);
-        return service.addPerson(personForRequest.getPerson());
+    public PersonRequest addPerson(@RequestBody PersonRequest personRequest) {
+        System.out.println(personRequest);
+        return service.addPerson(personRequest.getPerson());
     }
 
     @GetMapping("persons/by-city")
