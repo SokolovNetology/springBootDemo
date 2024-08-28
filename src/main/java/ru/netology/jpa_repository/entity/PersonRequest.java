@@ -15,17 +15,18 @@ import ru.netology.jpa_repository.dto.PersonDTO;
 @Table(name = "Persons")
 public class PersonRequest {
     @EmbeddedId
-    private PersonDTO personRequisites;
+    private PersonDTO personDTO;
     @Column(nullable = false)
     private String phoneNumber;
     @Column(nullable = false)
     private String cityOfLiving;
 
-
     public PersonRequest getPerson() {
-        return new PersonRequest(personRequisites,phoneNumber,cityOfLiving);
+
+        return new PersonRequest(personDTO,phoneNumber,cityOfLiving);
     }
 }
+
 
 
 
