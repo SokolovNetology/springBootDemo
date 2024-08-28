@@ -1,5 +1,4 @@
-package ru.netology.jpa_repository.entity;
-
+package ru.netology.jpa_repository.dto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
@@ -12,7 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class PersonRequisites implements Serializable {
+public class PersonDTO implements Serializable {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)

@@ -1,7 +1,7 @@
 package ru.netology.jpa_repository.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.netology.jpa_repository.dto.PersonRequest;
+import ru.netology.jpa_repository.entity.PersonRequest;
 import ru.netology.jpa_repository.service.MyService;
 
 @RestController

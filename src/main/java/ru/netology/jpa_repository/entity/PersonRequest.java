@@ -1,4 +1,4 @@
-package ru.netology.jpa_repository.dto;
+package ru.netology.jpa_repository.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.netology.jpa_repository.entity.PersonRequisites;
+import ru.netology.jpa_repository.dto.PersonDTO;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +15,7 @@ import ru.netology.jpa_repository.entity.PersonRequisites;
 @Table(name = "Persons")
 public class PersonRequest {
     @EmbeddedId
-    private PersonRequisites personRequisites;
+    private PersonDTO personRequisites;
     @Column(nullable = false)
     private String phoneNumber;
     @Column(nullable = false)
@@ -26,3 +26,6 @@ public class PersonRequest {
         return new PersonRequest(personRequisites,phoneNumber,cityOfLiving);
     }
 }
+
+
+
