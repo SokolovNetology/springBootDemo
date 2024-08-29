@@ -12,7 +12,7 @@ import ru.netology.jpa_repository.dto.PersonDTO;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "Persons")
+@Table(name = "Persons",schema = "datafortest")
 public class PersonRequest {
     @EmbeddedId
     private PersonDTO personDTO;
@@ -20,7 +20,9 @@ public class PersonRequest {
     private String phoneNumber;
     @Column(nullable = false)
     private String cityOfLiving;
-
+    public PersonRequest getPerson() {
+        return new PersonRequest(personDTO,phoneNumber,cityOfLiving);
+    }
 }
 
 

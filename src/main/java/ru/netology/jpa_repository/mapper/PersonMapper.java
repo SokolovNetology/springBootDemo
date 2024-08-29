@@ -1,14 +1,16 @@
 package ru.netology.jpa_repository.mapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.netology.jpa_repository.dto.PersonDTO;
 import ru.netology.jpa_repository.entity.PersonRequest;
-@Data
+
+
 @AllArgsConstructor
+@Data
+public class PersonMapper<Person> {
 
-public class PersonMapper {
-    public PersonRequest getPerson(String cityOfLiving,String phoneNumber) {
+    public PersonRequest getPerson() {
 
-        return new PersonRequest(new PersonDTO(),phoneNumber,cityOfLiving);
+         return new PersonRequest();
+
     }
 }
