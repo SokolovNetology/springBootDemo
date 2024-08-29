@@ -21,10 +21,6 @@ public class PersonRequest {
     @Column(nullable = false)
     private String cityOfLiving;
 
-    public PersonRequest getPerson() {
-
-        return new PersonRequest(personDTO,phoneNumber,cityOfLiving);
-    }
 }
 
 
