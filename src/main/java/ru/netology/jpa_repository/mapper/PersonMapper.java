@@ -13,7 +13,7 @@ import ru.netology.jpa_repository.entity.PersonRequest;
 
 
 public class PersonMapper  {
-    private PersonRequest personRequest;
+
     private String name;
     private String surname;
     private Integer age;
