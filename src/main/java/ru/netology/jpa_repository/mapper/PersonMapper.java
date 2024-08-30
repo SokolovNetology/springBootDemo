@@ -1,4 +1,5 @@
 package ru.netology.jpa_repository.mapper;
+import com.fasterxml.jackson.databind.cfg.MapperBuilder;
 import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +12,8 @@ import ru.netology.jpa_repository.entity.PersonRequest;
 @Data
 
 
-public class PersonMapper {
-    PersonRequest personRequest;
+public class PersonMapper  {
+    private PersonRequest personRequest;
     private String name;
     private String surname;
     private Integer age;

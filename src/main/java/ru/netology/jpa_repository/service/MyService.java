@@ -32,7 +32,7 @@ public class MyService {
 
     public ResponseEntity<String> getPersonsByAgeLessThan(Integer age) {
         List<PersonRequest> personsByAge = myRepository
-                .findPersonByPersonRequisitesAgeLessThanOrderByPersonRequisitesAge(age);
+                .findPersonByPersonDTOAgeLessThanOrderByPersonDTOAge(age);
         if (personsByAge.isEmpty()) {
             return new ResponseEntity<>("PERSON NOT FOUND", HttpStatus.NOT_FOUND);
         }
@@ -42,7 +42,7 @@ public class MyService {
 
     public ResponseEntity<String> getPersonsByNameAndSurname(String name, String surname) {
         Optional<PersonRequest> personsByNameAndSurname = myRepository
-                .findPersonByPersonRequisitesNameAndPersonRequisitesSurname(
+                .findPersonByPersonDTONameAndPersonDTOSurname(
                         name, surname
                 );
         if (personsByNameAndSurname.isEmpty()) {
