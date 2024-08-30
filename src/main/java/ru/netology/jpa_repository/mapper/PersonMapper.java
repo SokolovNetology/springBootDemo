@@ -19,8 +19,9 @@ public class PersonMapper  {
     private Integer age;
     private String phone_number;
     private String city_of_living;
-
+    
     public PersonRequest getPerson() {
+        PersonRequest personRequest = new PersonRequest();
         return new PersonRequest(
                 new PersonDTO(name, surname, age),
                 phone_number,
