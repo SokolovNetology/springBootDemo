@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "Persons",schema = "datafortest")
-public class PersonRequest extends PersonMapper implements Serializable {
+public class PersonRequest extends PersonMapper {
     @EmbeddedId
     private PersonDTO personDTO;
     @Column(nullable = false)
