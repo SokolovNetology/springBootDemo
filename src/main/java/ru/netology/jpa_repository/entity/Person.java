@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Embeddable
 @Entity
-public class PersonID {
+public class Person {
     @Id
     @Column(nullable = false)
     private String name;

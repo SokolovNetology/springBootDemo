@@ -12,13 +12,13 @@ import ru.netology.jpa_repository.entity.PersonID;
 
 public class PersonMapper {
 
-    public Person toEntity(PersonID personID,PersonDTO personDTO) {
+    public PersonID toEntity(PersonID personID,PersonDTO personDTO) {
         if (personDTO == null) {
             return null;
         }
-        Person person = new Person();
-        person.setName(personDTO.getName());
-        person.setSurname(personDTO.getSurname());
-        person.setAge(personDTO.getAge());
-         return person;}
+        PersonID personID = new PersonID();
+        personID.setName(personDTO.getName());
+        personID.setSurname(personDTO.getSurname());
+        personID.setAge(personDTO.getAge());
+         return personID;}
 }

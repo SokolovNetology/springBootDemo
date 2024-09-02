@@ -20,7 +20,7 @@ public class MyController {
     @PostMapping("add/person")
     public PersonDTO creatPersonID(@RequestBody PersonDTO personDTO) {
 
-        return service.creatPersonID(personDTO);
+        return service.creatPerson(personDTO);
     }
 
     @GetMapping("persons/by-city")
