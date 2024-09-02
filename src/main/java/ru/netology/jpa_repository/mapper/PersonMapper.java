@@ -1,30 +1,24 @@
 package ru.netology.jpa_repository.mapper;
-import com.fasterxml.jackson.databind.cfg.MapperBuilder;
-import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 import ru.netology.jpa_repository.dto.PersonDTO;
-import ru.netology.jpa_repository.entity.PersonRequest;
-
+import ru.netology.jpa_repository.entity.PersonID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Component
 
+public class PersonMapper {
 
-public class PersonMapper  {
-
-    private String name;
-    private String surname;
-    private Integer age;
-    private String phone_number;
-    private String city_of_living;
-    
-    public PersonRequest getPerson() {
-        PersonRequest personRequest = new PersonRequest();
-        return new PersonRequest(
-                new PersonDTO(name, surname, age),
-                phone_number,
-                city_of_living);
-    }
+    public Person toEntity(PersonID personID,PersonDTO personDTO) {
+        if (personDTO == null) {
+            return null;
+        }
+        Person person = new Person();
+        person.setName(personDTO.getName());
+        person.setSurname(personDTO.getSurname());
+        person.setAge(personDTO.getAge());
+         return person;}
 }

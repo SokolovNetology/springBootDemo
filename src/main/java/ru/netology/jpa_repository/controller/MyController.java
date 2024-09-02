@@ -2,21 +2,25 @@ package ru.netology.jpa_repository.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.netology.jpa_repository.entity.PersonRequest;
-import ru.netology.jpa_repository.service.MyService;
+import ru.netology.jpa_repository.dto.PersonDTO;
+import ru.netology.jpa_repository.mapper.PersonMapper;
 
 @RestController
 public class MyController {
     private final MyService service;
+    private final PersonMapper personMapper;
 
-    public MyController(MyService service) {
+    private final MyService service;
+
+    public MyController(MyService service, PersonMapper personMapper) {
         this.service = service;
+        this.personMapper = personMapper;
     }
 
     @PostMapping("add/person")
-    public PersonRequest addPerson(@RequestBody PersonRequest personRequest) {
-        System.out.println(personRequest);
-        return service.addPerson(personRequest.getPerson());
+    public PersonDTO creatPersonID(@RequestBody PersonDTO personDTO) {
+
+        return service.creatPersonID(personDTO);
     }
 
     @GetMapping("persons/by-city")
