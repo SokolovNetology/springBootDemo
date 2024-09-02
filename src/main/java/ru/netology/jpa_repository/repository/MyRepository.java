@@ -1,4 +1,5 @@
 package ru.netology.jpa_repository.repository;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.netology.jpa_repository.dto.PersonDTO;
@@ -8,8 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface MyRepository extends CrudRepository<Person ,PersonDTO> {
+public interface MyRepository extends CrudRepository<Person,Long> {
     List<Person> findPersonByCityOfLiving(String cityOfLiving);
-    List<Person> findPersonByPersonDTOAgeLessThanOrderByPersonDTOAge(Integer age );
+
+    List<Person> findPersonByPersonDTOAgeLessThanOrderByPersonDTOAge(Integer age);
+
     Optional<Person> findPersonByPersonDTONameAndPersonDTOSurname(String name, String surname);
 }
