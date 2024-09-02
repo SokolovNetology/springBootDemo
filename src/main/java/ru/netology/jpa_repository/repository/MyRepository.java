@@ -2,7 +2,6 @@ package ru.netology.jpa_repository.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import ru.netology.jpa_repository.dto.PersonDTO;
 import ru.netology.jpa_repository.entity.Person;
 
 import java.util.List;

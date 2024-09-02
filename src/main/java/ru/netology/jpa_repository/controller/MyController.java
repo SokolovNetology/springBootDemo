@@ -4,7 +4,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.netology.jpa_repository.dto.PersonDTO;
 import ru.netology.jpa_repository.entity.Person;
-import ru.netology.jpa_repository.mapper.PersonMapper;
 import ru.netology.jpa_repository.service.MyService;
 
 import java.util.Optional;
