@@ -4,7 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 import ru.netology.jpa_repository.dto.PersonDTO;
-import ru.netology.jpa_repository.entity.PersonID;
+import ru.netology.jpa_repository.entity.Person;
+import ru.netology.jpa_repository.service.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -12,13 +13,14 @@ import ru.netology.jpa_repository.entity.PersonID;
 
 public class PersonMapper {
 
-    public PersonID toEntity(PersonID personID,PersonDTO personDTO) {
+    public Person toEntity(PersonDTO personDTO) {
         if (personDTO == null) {
             return null;
+
         }
-        PersonID personID = new PersonID();
-        personID.setName(personDTO.getName());
-        personID.setSurname(personDTO.getSurname());
-        personID.setAge(personDTO.getAge());
-         return personID;}
+        Person person = new Person();
+        person.setName(personDTO.getName());
+        person.setSurname(personDTO.getSurname());
+        person.setAge(personDTO.getAge());
+         return person;}
 }

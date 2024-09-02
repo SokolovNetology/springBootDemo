@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.netology.jpa_repository.dto.PersonDTO;
 
 @Data
 @AllArgsConstructor
@@ -11,6 +12,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Person {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)

@@ -1,5 +1,4 @@
 package ru.netology.jpa_repository.controller;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.netology.jpa_repository.dto.PersonDTO;
@@ -7,10 +6,9 @@ import ru.netology.jpa_repository.mapper.PersonMapper;
 
 @RestController
 public class MyController {
-    private final MyService service;
+
     private final PersonMapper personMapper;
 
-    private final MyService service;
 
     public MyController(MyService service, PersonMapper personMapper) {
         this.service = service;
@@ -18,7 +16,7 @@ public class MyController {
     }
 
     @PostMapping("add/person")
-    public PersonDTO creatPersonID(@RequestBody PersonDTO personDTO) {
+    public PersonDTO creatPerson(@RequestBody PersonDTO personDTO) {
 
         return service.creatPerson(personDTO);
     }

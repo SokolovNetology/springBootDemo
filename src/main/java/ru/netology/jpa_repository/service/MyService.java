@@ -1,5 +1,5 @@
 package ru.netology.jpa_repository.service;
-
+import ru.netology.jpa_repository.controller.MyController;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,12 +17,14 @@ import java.util.Optional;
 public class MyService {
     @Autowired
     private MyRepository myRepository;
+
+
     public MyService(MyRepository myRepository) {
         this.myRepository = myRepository;
     }
 
     public PersonDTO createPerson(PersonDTO personDTO){
-        Person person = person.toEntity(personDTO);
+        Person person = personMapper.toEntity(personDTO);
         person = myRepository.save(person);
         return person.toDto(person);
     }
@@ -61,33 +63,34 @@ public class MyService {
 
 }
 
-    public ResponseEntity<String> getPersonsByCity(String city) {
-        List<Person> personsByCity = myRepository.findPersonByCityOfLiving(city);
-        if (personsByCity.isEmpty()) {
-            return new ResponseEntity<>("PERSON NOT FOUND", HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(personsByCity.toString(), HttpStatus.OK);
+public ResponseEntity<String> getPersonsByCity(String city) {
+    List<Person> personsByCity = myRepository.findPersonByCityOfLiving(city);
+    if (personsByCity.isEmpty()) {
+        return new ResponseEntity<>("PERSON NOT FOUND", HttpStatus.NOT_FOUND);
     }
+    return new ResponseEntity<>(personsByCity.toString(), HttpStatus.OK);
+}
 
-    public ResponseEntity<String> getPersonsByAgeLessThan(Integer age) {
-        List<Person> personsByAge = myRepository
-                .findPersonByPersonDTOAgeLessThanOrderByPersonDTOAge(age);
-        if (personsByAge.isEmpty()) {
-            return new ResponseEntity<>("PERSON NOT FOUND", HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(personsByAge.toString(), HttpStatus.OK);
+public ResponseEntity<String> getPersonsByAgeLessThan(Integer age) {
+    List<Person> personsByAge = myRepository
+            .findPersonByPersonDTOAgeLessThanOrderByPersonDTOAge(age);
+    if (personsByAge.isEmpty()) {
+        return new ResponseEntity<>("PERSON NOT FOUND", HttpStatus.NOT_FOUND);
     }
+    return new ResponseEntity<>(personsByAge.toString(), HttpStatus.OK);
+}
 
 
-    public ResponseEntity<String> getPersonsByNameAndSurname(String name, String surname) {
-        Optional<Person> personsByNameAndSurname = myRepository
-                .findPersonByPersonDTONameAndPersonDTOSurname(
-                        name, surname
-                );
-        if (personsByNameAndSurname.isEmpty()) {
-            return new ResponseEntity<>("PERSON NOT FOUND", HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(personsByNameAndSurname.get().toString(), HttpStatus.OK);
+public ResponseEntity<String> getPersonsByNameAndSurname(String name, String surname) {
+    Optional<Person> personsByNameAndSurname = myRepository
+            .findPersonByPersonDTONameAndPersonDTOSurname(
+                    name, surname
+            );
+    if (personsByNameAndSurname.isEmpty()) {
+        return new ResponseEntity<>("PERSON NOT FOUND", HttpStatus.NOT_FOUND);
     }
+    return new ResponseEntity<>(personsByNameAndSurname.get().toString(), HttpStatus.OK);
+}
 
+}
 }
