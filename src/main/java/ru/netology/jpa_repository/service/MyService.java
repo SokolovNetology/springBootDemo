@@ -12,9 +12,9 @@ import java.util.Optional;
 @Service
 public class MyService {
 
-     private MyRepository myRepository;
+     private final MyRepository myRepository;
 
-     private PersonMapper personMapper;
+     private final PersonMapper personMapper;
 
 
     public MyService(MyRepository myRepository, PersonMapper personMapper) {
