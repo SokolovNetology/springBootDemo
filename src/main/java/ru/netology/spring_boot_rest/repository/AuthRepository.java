@@ -15,4 +15,5 @@ public interface AuthRepository {
 
     boolean addAdmin(String user, String password, List<Authorities> list);
 
+
 }
