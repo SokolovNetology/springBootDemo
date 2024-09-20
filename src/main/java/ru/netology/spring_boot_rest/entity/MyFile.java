@@ -1,11 +1,18 @@
 package ru.netology.spring_boot_rest.entity;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+@Getter
+@Setter
+@RequiredArgsConstructor
+@EqualsAndHashCode
 @Entity
-@Table(name = "myFile")
-
+@Table(name = "my_file")
 public class MyFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +28,4 @@ public class MyFile {
     @Column(name = "isDeleted")
     public boolean isDeleted = false;
 
-    public MyFile(String content, Long id, boolean isDeleted, String name) {
-        this.content = content;
-        this.id = id;
-        this.isDeleted = isDeleted;
-        this.name = name;
-    }
-
-    public MyFile() {
-
-    }
 }

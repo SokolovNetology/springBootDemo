@@ -1,37 +1,36 @@
 package ru.netology.spring_boot_rest.service;
 
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.netology.spring_boot_rest.entity.MyFile;
-import ru.netology.spring_boot_rest.repository.FileRepositiry;
+import ru.netology.spring_boot_rest.repository.FileRepository;
 
 import java.io.File;
 import java.util.List;
 
 @Service
-
+@RequiredArgsConstructor
 public class FileService {
-     @Autowired
-     private FileRepositiry fileRepositiry;
-     @Override
+
+     private final FileRepository fileRepository;
+
      @Transactional
-     public List<File> getMyFile() {
-          return fileRepositiry.getMyFile();
+     public List<MyFile> getAllFiles() {
+          return fileRepository.getAllFiles();
      }
-     @Override
      @Transactional
      public void saveMyFile(MyFile myFile) {
-          fileRepositiry.saveMyFile(myFile);
+          fileRepository.saveMyFile(myFile);
      }
-     @Override
      @Transactional
      public MyFile getMyFile(Long id){
-          return fileRepositiry.getMyFile(id);
+          return fileRepository.getMyFile(id);
      }
-     @Override
      @Transactional
-     public void MyFile deleteMyFile(){
-          fileRepositiry.deleteMyFile(id);
+     public  boolean deleteMyFile(Long id) {
+
+          return fileRepository.deleteMyFile(id);
+
      }
 }

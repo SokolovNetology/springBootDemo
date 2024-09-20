@@ -5,7 +5,8 @@ import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
-import ru.netology.spring_boot_rest.annotatin.LogoPassAnnotation;
+import ru.netology.spring_boot_rest.annotation.LogoPassAnnotation;
+import ru.netology.spring_boot_rest.model.UserDto;
 
 
 public class CustomLogoPassArgumentResolver implements HandlerMethodArgumentResolver {
@@ -24,7 +25,7 @@ public class CustomLogoPassArgumentResolver implements HandlerMethodArgumentReso
         String user = webRequest.getParameter("user");
         String password = webRequest.getParameter("password");
         if (user != null || password != null) {
-            return new ru.netology.spring_boot_rest.model.LogoPass(user, password);
+            return new UserDto(user, password);
         }
         return null;
     }

@@ -2,34 +2,34 @@ package ru.netology.spring_boot_rest.repository;
 
 import org.springframework.stereotype.Repository;
 import ru.netology.spring_boot_rest.entity.MyFile;
-import ru.netology.spring_boot_rest.model.LogoPass;
 
+import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 @Repository
-public class FileRepositiry implements GetSaveDeleteRepository  {
-    private List <MyFile> file = new ArrayList<MyFile>();
+public class FileRepository {
 
-    @Override
+//    private List <MyFile> file = new ArrayList<MyFile>();
     public List<MyFile> getMyFiles(Long id) {
         return List.of();
     }
 
-    @Override
-    public void saveMyFile(MyFile myFile) {
 
+    public boolean saveMyFile(MyFile myFile) {
+         return false;
     }
 
-    @Override
     public MyFile getMyFile(Long id) {
         return null;
     }
 
-    @Override
-    public void deleteMyFile(Long id) {
 
+    public boolean deleteMyFile(Long id) {
+         return true;
     }
 
-
+    public List<MyFile> getAllFiles() {
+        return List.of();
+    }
+}
 

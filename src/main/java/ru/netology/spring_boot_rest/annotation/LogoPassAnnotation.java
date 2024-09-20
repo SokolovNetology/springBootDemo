@@ -1,4 +1,4 @@
-package ru.netology.spring_boot_rest.annotatin;
+package ru.netology.spring_boot_rest.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

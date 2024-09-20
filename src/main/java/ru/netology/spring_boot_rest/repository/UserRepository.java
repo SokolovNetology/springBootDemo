@@ -1,45 +1,14 @@
 package ru.netology.spring_boot_rest.repository;
 import org.springframework.stereotype.Repository;
-import ru.netology.spring_boot_rest.model.Authorities;
-import ru.netology.spring_boot_rest.model.LogoPass;
 
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
-public class UserRepository implements AuthRepository {
-    private final Map<LogoPass, List<Authorities>> userMap;
+public interface UserRepository {
+    /**
+     * поменять интерфейс UserRepository на класс.
+     * создать конструктор ,задать в нем по умолчанию нескольких пользователей с правами.
+     * добвить метод getAuthorities()в который будет приходить обьъект класса юзер
+     * методы берем из AuthorizationService целиком.
+     */
 
-    public UserRepository() {
-        userMap = new ConcurrentHashMap<>();
-    }
-
-    @Override
-    public List<Authorities> getAuthorities(String user, String password) {
-        LogoPass inputLogoPass = new LogoPass(user, password);
-        if (!userMap.containsKey(inputLogoPass)) {
-            return null;
-        }
-        return userMap.get(inputLogoPass);
-    }
-
-    //For test
-    @Override
-    public boolean addUser(String user, String password, List<Authorities> list) {
-        if (!userMap.containsKey(new LogoPass(user, password))) {
-            userMap.put(new LogoPass(user, password), list);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean addAdmin(String user, String password, List<Authorities> list) {
-        if (!userMap.containsKey(new LogoPass(user, password))) {
-            userMap.put(new LogoPass(user, password), list);
-            return true;
-        }
-        return false;
-    }
 }
