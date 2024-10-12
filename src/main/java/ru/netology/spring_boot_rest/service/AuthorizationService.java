@@ -18,7 +18,6 @@ public class AuthorizationService {
 
     private final UserRepository repository;
 
-
     public List<Authorities> getAuthorities(UserDto userDto) {
 //        if (isEmpty(user) || isEmpty(password)) {
 //            throw new InvalidCredentials("User name or password is empty");
