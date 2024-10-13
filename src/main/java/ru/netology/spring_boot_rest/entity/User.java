@@ -1,11 +1,9 @@
 package ru.netology.spring_boot_rest.entity;
-import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import ru.netology.spring_boot_rest.model.Authorities;
-
 import java.util.List;
 
 

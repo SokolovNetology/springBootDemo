@@ -1,5 +1,5 @@
 package ru.netology.spring_boot_rest.controller;
-import ru.netology.spring_boot_rest.service.
+import ru.netology.spring_boot_rest.service.FileService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,13 +18,11 @@ public class FileController {
     //
     @GetMapping("/all-files")
     public List<MyFile> showALLFiles(){
-
         return fileService.getAllFiles();
     }
 
     @PostMapping("/save")
     public void saveFile(@RequestBody MyFile file){
-
         fileService.saveMyFile(file);
     }
     @PostMapping("/delete")

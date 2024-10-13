@@ -1,12 +1,10 @@
 package ru.netology.spring_boot_rest.service;
-
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.netology.spring_boot_rest.entity.MyFile;
 import ru.netology.spring_boot_rest.repository.FileRepository;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -16,13 +14,13 @@ import java.util.List;
 public class FileService {
 
     private final FileRepository fileRepository;
-    public MyFile saveFile(MultipartFile file) throws IOException {
+    public boolean saveFile(MultipartFile file) throws IOException {
         MyFile fileEntity = new MyFile();
         fileEntity.setFileName(file.getOriginalFilename());
         fileEntity.setFileType(file.getContentType());
         fileEntity.setData(file.getBytes());
 
-        return fileRepository.save(fileEntity);
+        return fileRepository.saveMyFile(fileEntity);
     }
     public MyFile saveFile(MultipartFile file)throws IOException {
 
@@ -39,7 +37,7 @@ public class FileService {
 
     @Transactional
     public MyFile getMyFile(Long id) {
-        return fileRepository.getMyFile(id);
+        return (MyFile) fileRepository.getMyFile(id);
     }
 
     @Transactional
